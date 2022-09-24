@@ -1,6 +1,6 @@
 {
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Todo App using react redux pwa",
   "icons": [
     {
       "src": "favicon.ico",
