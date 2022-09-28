@@ -2,15 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 export const taskSlice=createSlice({
     name:'task',
     initialState:{
-        value:[],
+        value:JSON.parse(localStorage.getItem('todo_hackzeal')) || [],
     },
     reducers:{
         addTodo:(state,action)=>{
             state.value.push(action.payload);
+            localStorage.setItem('todo_hackzeal',JSON.stringify(state.value))
             return state;
         },
         removeTodo:(state,action)=>{
             state.value=state.value.filter((item)=>item.taskname!==action.payload);
+            localStorage.setItem('todo_hackzeal',JSON.stringify(state.value))
             return state;
         },
         completeTodo:(state,action)=>{
@@ -23,8 +25,10 @@ export const taskSlice=createSlice({
                 }
                 return item;
             })
+            localStorage.setItem('todo_hackzeal',JSON.stringify(state.value))
             return state;
         }
+        
     }
 })
 
